@@ -9,3 +9,8 @@
 ![Fiddler](https://img.shields.io/badge/Fiddler-090909?style=for-the-badge&logo=fiddler&logoColor=8cc4d7)
 ![Jmeter](https://img.shields.io/badge/Jmeter-090909?style=for-the-badge&logo=apachejMeter&logoColor=8cc4d7)
 ![Github](https://img.shields.io/badge/Github-090909?style=for-the-badge&logo=github&logoColor=8cc4d7)
+
+### Languages
+![JS](https://img.shields.io/badge/JS-090909?style=for-the-badge&logo=javascript&logoColor=136be1)
+![HTML](https://img.shields.io/badge/HTML-090909?style=for-the-badge&logo=html5&logoColor=136be1)
+![CSS](https://img.shields.io/badge/CSS-090909?style=for-the-badge&logo=css3&logoColor=136be1)
