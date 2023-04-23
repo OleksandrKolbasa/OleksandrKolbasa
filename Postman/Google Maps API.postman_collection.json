@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "ff7b7e5b-c136-49e5-a9e5-98f4dd2255a3",
+		"name": "Google Maps API",
+		"description": "This collection is a portfolio of my work with **Postman**.\n\nHere you can see my use of variables, pre-request script and tests.\n\nAlso here I show how I used query methods like **POST**, **GET**, **PUT** and **DELETE** (**CRUD**).\n\nThank you for your attention!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25454763"
+	},
+	"item": [
+		{
+			"name": "Add place",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Set Variable placeID\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"placeID\", jsonData.place_id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"oldAddress\", \"29, side layout, cohen 09\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"location\": {\r\n    \"lat\": -38.383494,\r\n    \"lng\": 33.427362\r\n  },\r\n  \"accuracy\": 50,\r\n  \"name\": \"Frontline house\",\r\n  \"phone_number\": \"(+91) 983 893 3937\",\r\n  \"address\": \"{{oldAddress}}\",\r\n  \"types\": [\r\n    \"shoe park\",\r\n    \"shop\"\r\n  ],\r\n  \"website\": \"http://google.com\",\r\n  \"language\": \"French-IN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/maps/api/place/add/json?key={{key}}",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"add",
+						"json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check address data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Verification of status code\r",
+							"pm.test(\"Verification of status code \", function () {\r",
+							"    if (pm.response.code === 200) {\r",
+							"        pm.response.to.have.status(200);\r",
+							"    } else {\r",
+							"        pm.response.to.have.status(404);\r",
+							"        postman.setNextRequest(null);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Checking that the address has been updated\r",
+							"if (pm.response.code === 200) {\r",
+							"    // Message of status 200\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"        pm.response.to.have.status(200);\r",
+							"    });\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var newAddress = pm.environment.get(\"newAddress\");\r",
+							"    // Checking new address\r",
+							"    if (newAddress !== undefined) {\r",
+							"        pm.test(\"Check new adress data\", function () {\r",
+							"            pm.expect(jsonData.address).to.eql(newAddress);\r",
+							"            postman.setNextRequest(\"Remove place\");\r",
+							"        });\r",
+							"    // Checking old address\r",
+							"    } else {\r",
+							"        pm.test(\"Check adress data\", function () {\r",
+							"            var oldAddress = pm.environment.get(\"oldAddress\");\r",
+							"            pm.expect(jsonData.address).to.eql(oldAddress);\r",
+							"        });\r",
+							"    }\r",
+							"// Place was deleted\r",
+							"} else {\r",
+							"    // Message of status 404\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"        pm.response.to.have.status(404);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://rahulshettyacademy.com/maps/api/place/get/json?key={{key}}&place_id={{placeID}}",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"get",
+						"json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "place_id",
+							"value": "{{placeID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update adress data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Address successfully updated\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData.msg).to.eql(\"Address successfully updated\");\r",
+							"});\r",
+							"\r",
+							"postman.setNextRequest(\"Check address data\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"newAddress\", \"Bohdan Khmelnytsky Street 40/25, UA\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"place_id\": \"{{placeID}}\",\r\n\"address\":\"{{newAddress}}\",\r\n\"key\": \"{{key}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/maps/api/place/update/json?key={{key}}&place_id={{placeID}}",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"update",
+						"json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "place_id",
+							"value": "{{placeID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove place",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.environment.unset(\"newAddress\");\r",
+							"pm.environment.unset(\"oldAddress\");\r",
+							"pm.environment.unset(\"placeID\");\r",
+							"\r",
+							"postman.setNextRequest(\"Check address data\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"place_id\": \"{{placeID}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/maps/api/place/delete/json?key={{key}}",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"delete",
+						"json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "key",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
