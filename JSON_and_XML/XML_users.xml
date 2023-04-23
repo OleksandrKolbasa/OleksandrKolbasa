@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<users>
+	<user>
+		<id>1</id>
+		<name>John Doe</name>
+		<email>johndoe@example.com</email>
+		<age>30</age>
+		<address>
+			<street>123 Main St</street>
+			<city>Anytown</city>
+			<state>CA</state>
+			<zip>64738</zip>
+		</address>
+	</user>
+	<user>
+		<id>2</id>
+		<name>Jane Smith</name>
+		<email>janesmith@example.com</email>
+		<age>25</age>
+		<address>
+			<street>456 Oak Ave</street>
+			<city>Anytown</city>
+			<state>CA</state>
+			<zip>74632</zip>
+		</address>
+	</user>
+	<user>
+		<id>3</id>
+		<name>Bob Johnson</name>
+		<email>bobjohnson@example.com</email>
+		<age>40</age>
+		<address>
+			<street>789 Elm St</street>
+			<city>Anytown</city>
+			<state>CA</state>
+			<zip>84654</zip>
+		</address>
+	</user>
+	<user>
+		<id>4</id>
+		<name>Alice Lee</name>
+		<email>alicelee@example.com</email>
+		<age>27</age>
+		<address>
+			<street>234 Oak St</street>
+			<city>Anytown</city>
+			<state>CA</state>
+			<zip>36592</zip>
+		</address>
+	</user>
+	<user>
+		<id>5</id>
+		<name>Samuel Kim</name>
+		<email>samuelkim@example.com</email>
+		<age>35</age>
+		<address>
+			<street>567 Pine St</street>
+			<city>Anytown</city>
+			<state>CA</state>
+			<zip>07493</zip>
+		</address>
+	</user>
+</users>

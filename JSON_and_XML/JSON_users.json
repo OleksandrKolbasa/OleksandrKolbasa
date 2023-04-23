@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "age": 30,
+      "address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "zip": "64738"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "age": 25,
+      "address": {
+        "street": "456 Oak Ave",
+        "city": "Anytown",
+        "state": "CA",
+        "zip": "74632"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bobjohnson@example.com",
+      "age": 40,
+      "address": {
+        "street": "789 Elm St",
+        "city": "Anytown",
+        "state": "CA",
+        "zip": "84654"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Alice Lee",
+      "email": "alicelee@example.com",
+      "age": 27,
+      "address": {
+        "street": "234 Oak St",
+        "city": "Anytown",
+        "state": "CA",
+        "zip": "36592"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Samuel Kim",
+      "email": "samuelkim@example.com",
+      "age": 35,
+      "address": {
+        "street": "567 Pine St",
+        "city": "Anytown",
+        "state": "CA",
+        "zip": "07493"
+      }
+    }
+  ]
+}
