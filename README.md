@@ -13,3 +13,11 @@
 ![JS](https://img.shields.io/badge/JS-090909?style=for-the-badge&logo=javascript&logoColor=136be1)
 ![HTML](https://img.shields.io/badge/HTML-090909?style=for-the-badge&logo=html5&logoColor=136be1)
 ![CSS](https://img.shields.io/badge/CSS-090909?style=for-the-badge&logo=css3&logoColor=136be1)
+### Examples of work
++ [Test cases](https://github.com/OleksandrKolbasa/OleksandrKolbasa/tree/main/Test_cases)
++ [Bug reports](https://github.com/OleksandrKolbasa/OleksandrKolbasa/tree/main/Bug_reports)
++ [Test design](https://github.com/OleksandrKolbasa/OleksandrKolbasa/tree/main/Test_design)
++ [Postman](https://github.com/OleksandrKolbasa/OleksandrKolbasa/tree/main/Postman)
++ [Fiddler](https://github.com/OleksandrKolbasa/OleksandrKolbasa/tree/main/Fiddler)
++ [JSON and XML](https://github.com/OleksandrKolbasa/OleksandrKolbasa/tree/main/JSON_and_XML)
++ [SQL](https://github.com/OleksandrKolbasa/OleksandrKolbasa/tree/main/SQL)
